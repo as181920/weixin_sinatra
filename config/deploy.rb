@@ -19,7 +19,7 @@ set(:run_method) { use_sudo ? :sudo : :run }
 default_run_options[:pty] = true
 
 set :application, "weixin"
-set :repository,  "???????????????????????"
+set :repository,  "git://github.com/as181920/weixin_sinatra.git"
 
 set :scm, :git
 set :scm_username, 'git'
