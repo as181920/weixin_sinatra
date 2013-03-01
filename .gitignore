@@ -22,7 +22,6 @@ resque.pid
 #db/schema.rb
 
 # Ignore public files and all generated assets
-/public
 /public/sitemap.xml
 /backups
 
