@@ -5,6 +5,7 @@ require 'active_support/all'
 require 'digest/md5'
 require "yaml"
 require "logger"
+require "pry"
 
 Log= Logger.new File.join(File.dirname(__FILE__),"log","#{Sinatra::Base.environment}.log"), "weekly"
 #Log.level = Logger::INFO
@@ -32,7 +33,7 @@ class Server < Sinatra::Application
     token = YAML.load(File.read(File.join(File.dirname(__FILE__),"config/config.yml")))["token"]
 
     if token.present? and signature.present? and timestamp.present? and nonce.present?
-      guess_signature = geneate_signature(token,timestamp,nonce)
+      guess_signature = generate_signature(token,timestamp,nonce)
       guess_signature.eql? signature
     end
   end
