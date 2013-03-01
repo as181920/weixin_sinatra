@@ -17,7 +17,7 @@ class Server < Sinatra::Application
     "hello weixin."
   end
 
-  get "/auth" do
+  get "/msg" do
     if signature_valid?(signature= params[:signature], timestamp = params[:timestamp], nonce= params[:nonce] )
       Log.info("signature is ok and return #{params[:echostr]}")
       puts "signature is ok and return #{params[:echostr]}"
@@ -25,7 +25,7 @@ class Server < Sinatra::Application
     end
   end
 
-  post "/" do
+  post "/msg" do
     puts Hash.from_xml params
     puts params
 =begin
