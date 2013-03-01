@@ -12,10 +12,6 @@ require 'capistrano/ext/multistage'
 set :use_sudo, false
 set(:run_method) { use_sudo ? :sudo : :run }
 
-
-# This is needed to correctly handle sudo password prompt
-default_run_options[:pty] = true
-
 set :application, "weixin_sinatra"
 
 set :scm, :git
@@ -23,10 +19,6 @@ set :branch, "master"
 
 set :user, "bbt"
 set :runner, user
-
-set :host, "#{user}@bbtang.com" # We need to be able to SSH to that box as this user.
-role :web, host
-role :app, host
 
 set :deploy_via, :remote_cache
 set :deploy_env, 'production'
