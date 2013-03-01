@@ -28,6 +28,31 @@ class Server < Sinatra::Application
   post "/msg" do
     puts Hash.from_xml params
     puts params
+    request.body.rewind
+
+
+
+    body_data =  Hash.from_xml request.body.read
+    data = body_data["xml"]
+    p data
+    puts "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    res = <<END_TEXT
+<xml>
+<ToUserName><![CDATA[oLUkFj8Db856hPfy-V9jYfR1Hsro]]></ToUserName>
+<FromUserName><![CDATA[gh_062972c0457c]]></FromUserName>
+<CreateTime>#{Time.now.to_i}</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[abc]]></Content>
+<FuncFlag><![CDATA[0]]></FuncFlag>
+</xml> 
+END_TEXT
+    p res 
+    res 
+                                       
+
+
+
+
 =begin
     request.body.rewind
     data = request.body.read
