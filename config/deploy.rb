@@ -19,7 +19,6 @@ default_run_options[:pty] = true
 set :application, "weixin_sinatra"
 
 set :scm, :git
-set :scm_username, 'git'
 set :branch, "master"
 
 set :user, "bbt"
