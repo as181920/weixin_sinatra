@@ -26,7 +26,7 @@ set :deploy_to, "/home/#{user}/bbtang/#{application}"
 
 set :keep_releases, 10
 
-after 'deploy:update_code', 'deploy:migrate', "deploy:create_symlink", "rvm:trust_rvmrc", "deploy:cleanup"
+after "deploy:create_symlink", "rvm:trust_rvmrc", "deploy:cleanup"
 
 namespace :deploy do
 
