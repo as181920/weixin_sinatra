@@ -1,10 +1,8 @@
-$:.unshift(File.expand_path('./lib', ENV['rvm_path']))
+# Bundler tasks
+require 'bundler/capistrano'
 require 'rvm/capistrano'
 set :rvm_ruby_string ,  'ruby-1.9.3-p194@askjane' #这个值是你要用rvm的gemset。名字要和系统里有的要一样。
 set :rvm_type, :user
-
-# Bundler tasks
-require 'bundler/capistrano'
 
 set :stages, %w(online)
 set :default_stage, "online"
@@ -18,7 +16,7 @@ set(:run_method) { use_sudo ? :sudo : :run }
 # This is needed to correctly handle sudo password prompt
 default_run_options[:pty] = true
 
-set :application, "weixin"
+set :application, "weixin_sinatra"
 set :repository,  "git://github.com/as181920/weixin_sinatra.git"
 
 set :scm, :git
