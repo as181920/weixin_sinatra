@@ -7,7 +7,7 @@ require "yaml"
 require "logger"
 require "pry"
 
-Log= Logger.new File.join(File.dirname(__FILE__),"log","#{Sinatra::Base.environment}.log"), "weekly"
+Log = Logger.new File.join(File.dirname(__FILE__),"log","#{Sinatra::Base.environment}.log"), "weekly"
 #Log.level = Logger::INFO
 
 
