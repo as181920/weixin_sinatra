@@ -6,7 +6,8 @@ require 'digest/md5'
 require "yaml"
 require "logger"
 
-Log= Logger.new File.join(File.dirname(__FILE__),"log","weixin.log")
+Log= Logger.new File.join(File.dirname(__FILE__),"log","#{Sinatra::Base.environment}.log"), "weekly"
+#Log.level = Logger::INFO
 
 
 class Server < Sinatra::Application
